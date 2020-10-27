@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+    <style>
+        .salmon {
+            background-color: lightsalmon;
+        }
+    </style>
+
+<div class="form">
+ <input type="text" placeholder="Name" id="name" />
+ <input type="text" placeholder="Number" id="number" />
+ <input type="distance" placeholder="Distance" id="distance" />
+ <input type="date" placeholder="Date" id="date"/>
+ <button id="submitBtn">Submit</button>
+ </div>
+ 
+ <table>
+ <thead>
+ <tr>
+ <th>Name</th>
+ <th>Number</th>
+ <th>Distance</th>
+ <th>Date</th>
+
+ </tr>
+ </thead>
+ <tbody id="output">
+ 
+ </tbody>
+ </table>
     
 </body>
+
 <script src="main.js"></script>
+
 </html>
