@@ -1,5 +1,16 @@
 const submitBtn = document.querySelector('#submitBtn');
 const output = document.getElementById('output');
+let duomenuModal = document.getElementById('duomenu_modalas');
+var data = document.getElementById('date');
+var numeris = document.getElementById('number');
+var laikas = document.getElementById('distance');
+var kelias = document.getElementById('name');
+
+var deleteIndex, editIndex;
+var mainModalButton = document.getElementById('main_modal_mygtukas');
+
+var redaguotiDuomenis = false;
+const duomenys = [];
 
 // sukurti ivyki paspaudus mygtuka paimami duomenys
 submitBtn.addEventListener('click', function () {
@@ -36,14 +47,14 @@ submitBtn.addEventListener('click', function () {
     
 // ikeliamas mygtukas
     tr.innerHTML += trinti;
+   
 
+// istrinami suvesti duomenys is input'u
 
-    // const editButton = `<td><button class="redaguoti">Redaguoti</button></td>`;
-    // tr.innerHTML += redaguoti;
-    // var editTd = document.createElement('td');
-    // editTd.appendChild(editButton);
-    // tr.appendChild(editTd);
-    // tbody.appendChild(tr);
+    document.querySelector('#name').value;
+    document.querySelector('#number').value = '';
+    document.querySelector('#distance').value = '';
+    document.querySelector('#date').value = '';
 
         var editButton = document.createElement('button');
         editButton.classList.add('redaguoti');
@@ -53,22 +64,9 @@ submitBtn.addEventListener('click', function () {
         tr.appendChild(editTd);
         tbody.appendChild(tr);
 
-
-
-// istrinami suvesti duomenys is input'u
-
-    document.querySelector('#name').value = '';
-    document.querySelector('#number').value = '';
-    document.querySelector('#distance').value = '';
-    document.querySelector('#date').value = '';
 });
 
 
-// paspaudus ant eilutes, pasikeicia spalva
-output.addEventListener('click', function (event) {
-    var tr = event.target.parentElement;
-    tr.classList.toggle('salmon');
-});
 
 // paspaudus ant mygtuko, istrinama eilute
 
@@ -80,5 +78,21 @@ output.addEventListener('click', function (e) {
     if (result) {
 
         e.target.parentElement.parentElement.remove();
-    }});
+}});
 
+
+
+
+output.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('redaguoti')) {
+        duomenuModal.classList.add('modal_overlay--active');
+        editIndex = e.target.parentElement.parentElement.rowIndex - 1;
+        // sudedam duomenis is masyvo i modalo inputus
+        data.value = duomenys[editIndex][0];
+        numeris.value = duomenys[editIndex][1];
+        laikas.value = duomenys[editIndex][2];
+        kelias.value = duomenys[editIndex][3];
+        mainModalButton.innerHTML = 'Redaguoti';
+        redaguotiDuomenis = true;
+    }
+})

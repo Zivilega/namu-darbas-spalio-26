@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
  <input type="text" placeholder="Name" id="name" />
  <input type="text" placeholder="Number" id="number" />
  <input type="distance" placeholder="Distance" id="distance" />
- <input type="date" placeholder="Date" id="date"/>
+ <input type="text" placeholder="Date" id="date"/>
  <button id="submitBtn">Submit</button>
  </div>
  
@@ -34,6 +35,29 @@
  
  </tbody>
  </table>
+ <div class="modal_overlay" id="duomenu_modalas">
+        <div class="modal">
+            <form id="duomenu_forma" action="">
+                <div>
+                    <label for="">Data</label>
+                    <input id="name" type="text">
+                </div>
+                <div>
+                    <label for="">Numeris</label>
+                    <input id="number" type="text">
+                </div>
+                <div>
+                    <label for="">Laikas</label>
+                    <input id="distance" type="text">
+                </div>
+                <div>
+                    <label for="">Kelias</label>
+                    <input id="date" type="text">
+                </div>
+                <button id="main_modal_mygtukas">Pridėti</button>
+            </form>
+        </div>
+    </div>
     
 </body>
 
